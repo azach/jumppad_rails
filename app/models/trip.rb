@@ -1,4 +1,6 @@
 class Trip < ActiveRecord::Base
+	has_many :segments, :dependent => :destroy
+	
 	validate :start_date_must_be_before_end_date
 	
 	def start_date_must_be_before_end_date

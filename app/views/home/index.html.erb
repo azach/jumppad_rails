@@ -1,24 +1,9 @@
- <div class="topbar">
-  <div class="fill">
-    <div class="container">
-      <a class="brand" href="#">JumpPad</a>
-
-      <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
 <div class="container">
 
   <!-- Main hero unit for a primary marketing message or call to action -->
   <div class="hero-unit">
     <h1>Get Excited!</h1>
-    <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p>JumpPad is a way for you to organize and plan your trip from the very high level down to the itty-gritty details. With tons of features, including Google Maps integration, printable schedules, and activities sourced from thousands of sources around the world, JumpPad is the best way to get excited about your trip.</p>
     <p><%= link_to "Start Your Project", new_trip_path, :class => "btn success large" %></p>
 
   </div>
@@ -27,24 +12,24 @@
   <div class="row">
     <div class="span6">
       <h2>Existing Trips</h2>
-      <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-      <p><a class="btn primary" href="#">View details &raquo;</a></p>
+      <p>We get it. It's a complicated, seven country tour of Latin America. The sheer number of sights, sounds, and routes are driving you mad. Take your time, you won't regret it. Return to an existing trip you've already started by clicking below.</p>
+      <p><a class="btn primary disabled" href="#">Coming Soon! &raquo;</a></p>
 
     </div>
     <div class="span5">
       <h2>Browse Trips</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn primary" href="#">View details &raquo;</a></p>
+       <p>Curious as to what other people have planned? Want to see what other people are doing during their whirlwind 2-day tour of Singapore, or the path people take on their 6-month spiritual trek across the foothills of Mongolia? Browse other peoples' trips here! </p>
+      <p><%= link_to 'View Details »', trips_path, :class => 'btn primary' %></p>
    </div>
     <div class="span5">
 
       <h2>Share Trips</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p>So now you've got the perfect trip down pat. Lunch at Caffè Greco, stroll down to San Giovanni Laterano for lunch, and back to the Regency for drinks and dinner by evening. Flaunt your plans or simply share them with others by clicking below. </p>
       <p><a class="btn primary" href="#">View details &raquo;</a></p>
     </div>
   </div>
-
+  
   <footer>
-    <p>&copy; Company 2011</p>
-
+	  <p>&copy; JumpPad 2011</p>
   </footer>
+</div>

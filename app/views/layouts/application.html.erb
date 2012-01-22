@@ -2,14 +2,30 @@
 <html>
 <head>
   <title>Welcome to JumpPad!</title>
-  <%= stylesheet_link_tag    'application' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag 'http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+ <div class="topbar">
+  <div class="fill">
+    <div class="container">
+    	<%= link_to 'JumpPad', root_path, :class => 'brand' %> 
+
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+	<%= yield %>
+</div>
 
 </body>
 </html>

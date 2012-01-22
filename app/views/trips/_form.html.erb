@@ -15,33 +15,33 @@
   	<div class="clearfix">
     <%= label_tag(:title, "Title:") %>
     <div class="input">
-    <%= text_field_tag(:title) %>
+    <%= text_field_tag :title, @trip.title %>
     </div>
     </div>
 
     <div class="clearfix">
     <%= label_tag(:description, "Description:") %>
     <div class="input">
-  	<%= text_field_tag(:description) %>
+  	<%= text_area_tag :description, @trip.description, :class => 'xxlarge', :rows => 3, :maxlength => 255 %>
   	</div>
   	</div>
 
 		<div class="clearfix">
 		<%= label_tag("Start Date") %>
 		<div class="input">	
-  	<%= select_date Date.today, :prefix => :start_date %>
+  	<%= select_date @trip.start_date.nil? ? Date.today : @trip.start_date, :prefix => :start_date %>
   	</div>
   	</div>
 
   	<div class="clearfix">
   	<%= label_tag("End Date") %>
   	<div class="input">
-  	<%= select_date Date.today + 1.week, :prefix => :end_date %>
+  	<%= select_date @trip.end_date.nil? ? Date.today + 1.week : @trip.end_date, :prefix => :end_date %>
   	</div>
   	</div>
 
 		<div class="input">
-		<%= submit_tag 'Create Trip', :class => 'btn primary' %>    
+		<%= submit_tag 'Save Trip', :class => 'btn primary' %>    
     <%= link_to 'Cancel', trips_path, :class => 'btn' %>
 		</div>
 

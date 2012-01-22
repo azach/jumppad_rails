@@ -1,5 +1,7 @@
 <div class="hero-unit">
-	<h1>Success!</h1>
+	<h1><%= @trip.title.nil? ? "Your Trip" : @trip.title %></h1>
+	<h5><%= "From #{@trip.start_date.nil? ? 'whenever' : @trip.start_date.to_date} to #{@trip.end_date.nil? ? 'one day...' : @trip.end_date.to_date }" %></h5>
+	<p><%= @trip.description %></p>
 </div>
 
 <div class="row">

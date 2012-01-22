@@ -59,13 +59,15 @@ class TripsController < ApplicationController
   # PUT /trips/1.json
   def update
     @trip = Trip.find(params[:id])
-
+  	start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+		end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+		
     respond_to do |format|
-      if @trip.update_attributes(params[:trip])
+      if @trip.update_attributes(:title => params[:title], :description => params[:description], :start_date => start_date, :end_date => end_date)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
     end

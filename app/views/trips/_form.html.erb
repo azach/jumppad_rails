@@ -42,7 +42,7 @@
 
 		<div class="input">
 		<%= submit_tag 'Save Trip', :class => 'btn primary' %>    
-    <%= link_to 'Cancel', trips_path, :class => 'btn' %>
+    <%= link_to 'Cancel', trip_path(@trip.id), :class => 'btn' %>
 		</div>
 
     </div>

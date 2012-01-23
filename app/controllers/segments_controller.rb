@@ -24,7 +24,7 @@ class SegmentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to trip_path(@trip) }
       format.json { head :no_content }
-    end  	
+    end
   end
   
   def edit

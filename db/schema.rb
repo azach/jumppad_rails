@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122204312) do
+ActiveRecord::Schema.define(:version => 20120123033509) do
 
   create_table "segments", :force => true do |t|
-    t.string   "title"
     t.string   "description"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -22,6 +21,9 @@ ActiveRecord::Schema.define(:version => 20120122204312) do
     t.integer  "trip_id",     :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "trips", :force => true do |t|

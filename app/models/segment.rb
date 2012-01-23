@@ -1,6 +1,9 @@
 class Segment < ActiveRecord::Base
   after_destroy :reorder_segment_positions
+  after_validation :geocode, :if => :location_changed?
   before_save :set_default_position
+
+  geocoded_by :location
 
   belongs_to :trip
 

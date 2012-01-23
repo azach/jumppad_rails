@@ -4,7 +4,7 @@ class SegmentsController < ApplicationController
   def create
     start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
     end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
-    @segment = Segment.new(:trip => @trip, :title => params[:title], :description => params[:description], :start_date => start_date, :end_date => end_date)
+    @segment = Segment.new(:trip => @trip, :location => params[:location], :description => params[:description], :start_date => start_date, :end_date => end_date)
 
     respond_to do |format|
       if @segment.save

@@ -1,6 +1,12 @@
 <div class="hero-unit">
 	<h1>Listing trips</h1>
-	<p>List of trips below</p>
+	<p>Search trips below</p>
+	<%= form_tag trips_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :class => 'btn', :name => nil %>
+  </p>
+  <% end %>
 </div>
 
 <div class="row">	

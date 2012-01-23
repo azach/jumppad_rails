@@ -53,4 +53,20 @@ class SegmentsController < ApplicationController
       redirect_to trip_path @trip
     end
   end
+  
+  def update
+    @segment = @trip.segments.where(:id => params[:id]).first
+    start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+    end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+
+    respond_to do |format|
+      if @segment.update_attributes(:location => params[:location], :description => params[:description], :start_date => start_date, :end_date => end_date)
+        format.html { redirect_to trip_segment_path(@trip, @segment), notice: 'Segment was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @segment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

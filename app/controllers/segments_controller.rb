@@ -1,9 +1,9 @@
 class SegmentsController < ApplicationController
-	before_filter { @trip = Trip.find(params[:trip_id]) }
+  before_filter { @trip = Trip.find(params[:trip_id]) }
 
   def create
-  	start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
-		end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+    start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+    end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
     @segment = Segment.new(:trip => @trip, :title => params[:title], :description => params[:description], :start_date => start_date, :end_date => end_date)
 
     respond_to do |format|
@@ -16,20 +16,20 @@ class SegmentsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
-  	@segment = @trip.segments.where(:position => params[:id]).first
-  	@segment.destroy
-  	
+    @segment = @trip.segments.where(:position => params[:id]).first
+    @segment.destroy
+    
     respond_to do |format|
       format.html { redirect_to trip_path(@trip) }
       format.json { head :no_content }
     end
   end
-  
+
   def edit
-		@segment = @trip.segments.where(:position => params[:id]).first
-	end
+    @segment = @trip.segments.where(:position => params[:id]).first
+  end
   
   def new
     @segment = Segment.new
@@ -39,14 +39,18 @@ class SegmentsController < ApplicationController
       format.json { render json: @segment }
     end
   end
-  
-  def show
-  	position = params[:id]
-    @segment = @trip.segments.where(:position => position).first    
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @segment }
+  def show
+    position = params[:id]
+    @segment = @trip.segments.where(:position => position).first
+
+    if @segment
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @segment }
+      end
+    else
+      redirect_to trip_path @trip
     end
   end
 end

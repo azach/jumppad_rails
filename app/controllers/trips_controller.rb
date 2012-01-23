@@ -40,8 +40,8 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-  	start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
-		end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+    start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+    end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
     @trip = Trip.new(:title => params[:title], :description => params[:description], :start_date => start_date, :end_date => end_date)
 
     respond_to do |format|
@@ -59,9 +59,9 @@ class TripsController < ApplicationController
   # PUT /trips/1.json
   def update
     @trip = Trip.find(params[:id])
-  	start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
-		end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
-		
+    start_date = Date.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+    end_date = Date.new(params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i)
+
     respond_to do |format|
       if @trip.update_attributes(:title => params[:title], :description => params[:description], :start_date => start_date, :end_date => end_date)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }

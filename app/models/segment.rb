@@ -1,9 +1,9 @@
 class Segment < ActiveRecord::Base
   after_destroy :reorder_segment_positions
   before_save :set_default_position
-	
+
   belongs_to :trip
-	
+
   private
 	
   def set_default_position
